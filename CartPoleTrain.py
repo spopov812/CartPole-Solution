@@ -1,11 +1,13 @@
 import numpy as np
 import gym
 
+
 def get_training_data():
+
     env = gym.make('CartPole-v0')
 
     data_points = 512
-    min_score = 60
+    min_score = 50
 
     x_training_data = []
     y_training_data = []
@@ -49,7 +51,7 @@ def get_training_data():
 
             num_data_acquired += 1
 
-            if num_data_acquired % 100 == 0:
+            if num_data_acquired % 50 == 0:
                 print("Acquired %d pairs of data" % num_data_acquired)
 
     x_training_data, y_training_data = np.array(x_training_data), np.array(y_training_data)
@@ -60,6 +62,3 @@ def get_training_data():
     print("Median score in training data set is ", np.median(scores_from_simulations))
 
     return x_training_data, y_training_data
-
-
-#np.savez("TrainingData.csv", x_data=x_training_data, y_data=y_training_data)

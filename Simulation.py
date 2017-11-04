@@ -1,5 +1,6 @@
 from Model import build_model
 from CartPoleTrain import get_training_data
+from matplotlib import pyplot as plt
 import numpy as np
 import gym
 
@@ -12,7 +13,12 @@ print(x_data.shape)
 print(y_data.shape)
 
 model = build_model()
-model.fit(x_data, y_data, epochs=5)
+history = model.fit(x_data, y_data, epochs=100)
+
+plt.plot(history.history['binary_accuracy'])
+plt.plot(history.history['mean_squared_error'])
+
+plt.show()
 
 num_games_to_run = 100
 

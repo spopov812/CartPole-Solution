@@ -25,9 +25,9 @@ def build_model():
 
     model.compile(
 
-        loss="mean_squared_error",
-        optimizer="sgd",
-        metrics=["binary_accuracy"]
+        loss='mean_squared_error',
+        optimizer='sgd',
+        metrics=['binary_accuracy', 'mean_squared_error']
 
         )
 
