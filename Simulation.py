@@ -9,9 +9,6 @@ env = gym.make("CartPole-v0")
 
 x_data, y_data = get_training_data()
 
-print(x_data.shape)
-print(y_data.shape)
-
 model = build_model()
 history = model.fit(x_data, y_data, epochs=100)
 

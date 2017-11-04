@@ -6,16 +6,13 @@ def build_model():
 
     model = Sequential()
 
-    model.add(Dense(4, input_shape=(4,), activation="relu"))
+    model.add(Dense(24, input_shape=(4,), activation="relu"))
     model.add(Dropout(.4))
 
-    model.add(Dense(3, activation="relu"))
+    model.add(Dense(24, activation="relu"))
     model.add(Dropout(.4))
 
-    model.add(Dense(3, activation="relu"))
-    model.add(Dropout(.4))
-
-    model.add(Dense(3, activation="relu"))
+    model.add(Dense(24, activation="relu"))
     model.add(Dropout(.4))
 
     model.add(Dense(1, activation="sigmoid"))
@@ -23,7 +20,7 @@ def build_model():
     model.compile(
 
         loss='mean_squared_error',
-        optimizer='sgd',
+        optimizer='adam',
         metrics=['binary_accuracy', 'mean_squared_error']
 
         )
