@@ -4,7 +4,7 @@ import gym
 def get_training_data():
     env = gym.make('CartPole-v0')
 
-    data_points = 1024
+    data_points = 512
     min_score = 60
 
     x_training_data = []

@@ -12,7 +12,7 @@ print(x_data.shape)
 print(y_data.shape)
 
 model = build_model()
-model.fit(x_data, y_data, epochs=7)
+model.fit(x_data, y_data, epochs=5)
 
 num_games_to_run = 100
 
@@ -26,7 +26,12 @@ for game in range(num_games_to_run):
 
     while not done:
 
-        action = np.argmax(model.predict(observation.reshape(1, 4)))
+        action = model.predict(observation.reshape(1, 4))
+
+        if action >= .5:
+            action = 1
+        else:
+            action = 0
 
         env.render()
 
