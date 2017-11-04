@@ -65,6 +65,10 @@ print("Average score in training data set is ", np.mean(scores_from_simulations)
 print("Median score in training data set is ", np.median(scores_from_simulations))
 
 
+with open("TrainingData.txt", "w") as file:
 
+    file.write(x_training_data)
+    file.write("break")
+    file.write(y_training_data)
 
-
+    file.close()
