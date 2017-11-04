@@ -59,7 +59,7 @@ while num_data_acquired < data_points:
 
 x_training_data, y_training_data = np.array(x_training_data), np.array(y_training_data)
 
-print("Number of games played %d\n" % num_simulations)
+print("\nNumber of games played- %d\n" % num_simulations)
 
 print("Average score in training data set is ", np.mean(scores_from_simulations))
 print("Median score in training data set is ", np.median(scores_from_simulations))
