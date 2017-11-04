@@ -20,9 +20,6 @@ def get_training_data():
 
         num_simulations += 1
 
-        if num_simulations % 100 == 0:
-            print("Running simulation ", num_simulations)
-
         total_score = 0
 
         x_training_sample = []
@@ -52,7 +49,8 @@ def get_training_data():
 
             num_data_acquired += 1
 
-            print("Acquired %d pairs of data" % num_data_acquired)
+            if num_data_acquired % 100 == 0:
+                print("Acquired %d pairs of data" % num_data_acquired)
 
     x_training_data, y_training_data = np.array(x_training_data), np.array(y_training_data)
 
