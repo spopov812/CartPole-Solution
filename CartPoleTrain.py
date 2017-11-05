@@ -6,7 +6,7 @@ def get_training_data():
 
     env = gym.make('CartPole-v0')
 
-    data_points = 512
+    data_points = 1000
     min_score = 50
 
     x_training_data = []
@@ -17,6 +17,8 @@ def get_training_data():
     scores_from_simulations = []
 
     num_data_acquired = 0
+
+    print("Acquiring data...\n\n")
 
     while num_data_acquired < data_points:
 
@@ -51,7 +53,7 @@ def get_training_data():
 
             num_data_acquired += 1
 
-            if num_data_acquired % 50 == 0:
+            if num_data_acquired % 100 == 0:
                 print("Acquired %d pairs of data" % num_data_acquired)
 
     x_training_data, y_training_data = np.array(x_training_data), np.array(y_training_data)

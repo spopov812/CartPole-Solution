@@ -21,7 +21,7 @@ def build_model():
 
         loss='mean_squared_error',
         optimizer='adam',
-        metrics=['binary_accuracy', 'mean_squared_error']
+        metrics=['mean_squared_error']
 
         )
 
