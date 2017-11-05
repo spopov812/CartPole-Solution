@@ -1,13 +1,12 @@
-To run trained model provided-
+## To run trained model provided-
 
 $python Simulation.py
 
+## To run and train new model (over 100 epochs with data that achieves score of at least 80)-
 
-To run and train new model(over 100 epochs with data that achieves score of at least 80)-
+$python Simulation.py train  
 
-$python Simulation.py train
-
-Note-
+## Note-
 Open AI's Gym must be installed, as well as Keras library
 
 Highest score possible is 200
