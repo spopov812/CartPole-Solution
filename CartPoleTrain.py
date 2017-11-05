@@ -1,13 +1,13 @@
 import numpy as np
 import gym
 
-
+#generates training data
 def get_training_data():
 
     env = gym.make('CartPole-v0')
 
     data_points = 1000
-    min_score = 50
+    min_score = 80
 
     x_training_data = []
     y_training_data = []
@@ -18,8 +18,9 @@ def get_training_data():
 
     num_data_acquired = 0
 
-    print("Acquiring data...\n\n")
+    print("\nAcquiring data...\n\n")
 
+    #acquires proper amount of training data
     while num_data_acquired < data_points:
 
         num_simulations += 1
@@ -32,6 +33,7 @@ def get_training_data():
         done = False
         observation = env.reset()
 
+        #runs game until it is finished
         while not done:
 
             #env.render()

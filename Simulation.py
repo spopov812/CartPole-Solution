@@ -15,10 +15,11 @@ if len(sys.argv) > 1 and sys.argv[1] == "train":
 
 env = gym.make("CartPole-v0")
 
-x_data, y_data = get_training_data()
-
 #builds and trains model
 if train:
+
+    x_data, y_data = get_training_data()
+
     model = build_model()
     history = model.fit(x_data, y_data, epochs=100)
 
@@ -32,6 +33,7 @@ if train:
 
     plt.show()
 
+#loads model
 else:
     model = load_model('cartpolemodel.h5')
 
@@ -56,7 +58,7 @@ for game in range(num_games_to_run):
         else:
             action = 0
 
-        #env.render()
+        env.render()
 
         #updated data after an action
         observation, reward, done, info = env.step(action)
@@ -67,7 +69,7 @@ for game in range(num_games_to_run):
 
 scores = np.array(scores)
 
-print("Total score achieved after 100 simulations- ", scores.sum())
+print("\nTotal score achieved after 100 simulations- ", scores.sum())
 
 print("Max score achieved- ", np.max(scores))
 
@@ -78,4 +80,4 @@ print("Median score- ", np.median(scores))
 not_max_score_vals = scores[scores != 200]
 num_not_max_score_vals = len(not_max_score_vals)
 
-print("The model failed to achieve the max score %d times, their values were:\n%s" % (num_not_max_score_vals, not_max_score_vals))
+print("The model failed to achieve the max score %d times, their values were:\n%s\n" % (num_not_max_score_vals, not_max_score_vals))
