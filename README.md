@@ -5,7 +5,8 @@ To run and train new model(over 100 epochs with data that achieves score of at l
 $python Simulation.py train
 
 Note-
-Highest score available is 200
+Open AI's Gym must be installed, as well as Keras library
+Highest score possible is 200
 
 After training, a graph will be generated showing the loss function change over time.
 Only after closing it can the model procced with testing data.
