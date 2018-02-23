@@ -7,21 +7,24 @@ import gym
 import sys
 
 train = False
+q = False
 
 
-
-if len(sys.argv) > 1 and sys.argv[1] == "train":
+if "train" in sys.argv:
     train = True
+
+if "q" in sys.argv:
+    q = True
 
 env = gym.make("CartPole-v0")
 
-#builds and trains model
+# builds and trains model
 if train:
 
     x_data, y_data = get_training_data()
 
     model = build_model()
-    history = model.fit(x_data, y_data, epochs=100)
+    history = model.fit(x_data, y_data, epochs=50)
 
     model.save('cartpolemodel.h5')
 
@@ -33,7 +36,7 @@ if train:
 
     plt.show()
 
-#loads model
+# loads model
 else:
     model = load_model('cartpolemodel.h5')
 
@@ -41,14 +44,14 @@ num_games_to_run = 100
 
 scores = []
 
-#runs games (100 by default)
+# runs games (100 by default)
 for game in range(num_games_to_run):
 
     observation = env.reset()
     score = 0
     done = False
 
-    #while a simulation has not been lost or max score achieved
+    # while a simulation has not been lost or max score achieved
     while not done:
 
         action = model.predict(observation.reshape(1, 4))
@@ -60,7 +63,7 @@ for game in range(num_games_to_run):
 
         env.render()
 
-        #updated data after an action
+        # updated data after an action
         observation, reward, done, info = env.step(action)
 
         score += reward
