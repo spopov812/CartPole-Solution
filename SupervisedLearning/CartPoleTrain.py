@@ -1,9 +1,11 @@
 import numpy as np
 import gym
+import sys
+import os
 
 
 # generates training data
-def get_training_data(min_score = 80):
+def get_training_data(min_score=80):
 
     env = gym.make('CartPole-v0')
 
@@ -18,10 +20,13 @@ def get_training_data(min_score = 80):
 
     num_data_acquired = 0
 
+    os.system("clear")
     print("\nAcquiring data...\n\n")
 
     # acquires proper amount of training data
     while num_data_acquired < data_points:
+
+        sys.stdout.write("\rAcquired %d/%d pairs of data" % (num_data_acquired, data_points))
 
         num_simulations += 1
 
@@ -33,10 +38,10 @@ def get_training_data(min_score = 80):
         done = False
         observation = env.reset()
 
-        #runs game until it is finished
+        # runs game until it is finished
         while not done:
 
-            #env.render()
+            # env.render()
 
             action = np.random.randint(0, 2)
 
@@ -54,9 +59,6 @@ def get_training_data(min_score = 80):
             y_training_data += y_training_sample
 
             num_data_acquired += 1
-
-            if num_data_acquired % 100 == 0:
-                print("Acquired %d pairs of data" % num_data_acquired)
 
     x_training_data, y_training_data = np.array(x_training_data), np.array(y_training_data)
 
