@@ -1,19 +1,31 @@
 # Overview-
-Deep neural network trained to play the Cart Pole environment using Open AI's Gym (saved as a .h5 file). Trained used data achieving a score of 80 (out of 200 maximum). After training the model, the model achieves the highest possible score ~90% of the time.
+Deep neural networks trained to play the Cart Pole environment using Open AI's Gym.
+Two solutions are presented using both supervised and reinforcement learning (Deep Q learning).
 
-## To run trained model provided-
+# To run
 
-$python Simulation.py
+## Specify one agent
 
-## To run and train new model-
+For supervised learning add a "sl" tag before running the script
+$ python Runme.py sl
 
-$python Simulation.py train
+For reinforcement learning (Q Learning) add a "rl" tag before running the script
+$ python Runme.py rl
+
+## To run or train new model-
+
+$ python .py train
+$ python Runme.py test
 
 ## Note-
-Open AI's Gym must be installed, as well as Keras library
+Command line args for running or training can be combined such as
+$ python Runme.py train test sl
+$ python Runme.py test rl
 
-After training, a graph will be generated showing the loss function change over time.
-Only after closing it can the model procced with testing data.
+Open AI's Gym must be installed, as well as Keras on top of tensorflow
 
-During testing, the model will render the cartpole environment which will take additional time.
+After training a supervised learning model, a graph will be generated showing the loss function change over time.
+Only after closing it can the model proceed with testing data.
+
+During testing, the model may render the cartpole environment which will take additional time.
 The window can be closed in order to speed evaluation of the model.
